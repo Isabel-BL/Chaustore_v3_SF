@@ -10,19 +10,14 @@ use Doctrine\ORM\Mapping as ORM;
 class Stock
 {
     /**
-     * @ORM\Id()  
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
-
-    /**
+     * @ORM\Id()
      * @ORM\ManyToOne(targetEntity="App\Entity\Product", inversedBy="stock")
      * @ORM\JoinColumn(nullable=false)
      */
     private $product;
 
     /** 
+     * @ORM\Id()
      * @ORM\ManyToOne(targetEntity="App\Entity\Size", inversedBy="stock")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -33,6 +28,12 @@ class Stock
      */
     private $stock;
 
+    public function __constuct()
+    {
+        $this->product = $product;
+        $this->size = $size;
+    }  
+      
     public function getId(): ?int
     {
         return $this->id;

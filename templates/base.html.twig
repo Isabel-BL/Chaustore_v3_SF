@@ -6,6 +6,12 @@
         <link rel="stylesheet"  href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/journal/bootstrap.min.css">
     </head>
     <body>
+        {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+        {% endif %}
+        
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
