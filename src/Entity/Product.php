@@ -49,6 +49,11 @@ class Product
      */
     private $gender;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Image;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -122,6 +127,18 @@ class Product
     public function setGender(string $gender): self
     {
         $this->gender = $gender;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->Image;
+    }
+
+    public function setImage(string $Image): self
+    {
+        $this->Image = $Image;
 
         return $this;
     }

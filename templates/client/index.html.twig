@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ClientController!{% endblock %}
+
+{% block body %}
+    
+    <a>LIVRAISON ET RETOURS GRATUITS EN BOUTIQUES! </a> </spam>
+    <a href="">Boutique</a>
+    <a href="{{ path('user') }}">Compte</a>
+    <a>Favoris</a>
+    
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Marque</th>
+                <th>Catégorie</th>
+                <th>Prix</th>
+                <th> Image </th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.brand.name }}</td>
+                <td>{{ product.category.name }}</td>
+                <td>{{ product.price }}</td>
+                <td> <img src="{{ asset('img/')}}{{ product.image }}" /> </td> 
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+                
+{% endblock %}
